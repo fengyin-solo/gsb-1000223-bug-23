@@ -82,12 +82,12 @@ class PowerDataEntry(BaseModel):
 
     field_0: str | None = None  # 记录编号
     field_1: str | None = None  # 电站编号
-    field_2: str | None = None  # 发电量
+    field_2: str | None = None  # 发电量（缺测时段为空，不是 0）
     field_3: str | None = None  # 辐照度
     field_4: str | None = None  # 组件温度
     field_5: str | None = None  # 环境温度
     field_6: str | None = None  # 记录时间
-    field_7: str | None = None  # 数据状态
+    field_7: str | None = None  # 采集状态（已采集 / 缺测）
 
 class FaultEntry(BaseModel):
     """故障记录明细结构。"""
