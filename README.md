@@ -74,3 +74,7 @@ npm run dev
   `backend/app/routers/<模块>.py`，业务规则在 `backend/app/services/<模块>.py`。
 - 列表接口统一返回 `{ items, total, page, size }`，动作接口统一返回 `{ ok, message }`。
 - 状态流转只允许在 `app/services` 里改，路由层不做业务判断。
+- 发电监测的采集状态与零值口径全模块唯一（`backend/app/services/power_data.py`）：
+  只有「已采集 / 补录」的记录参与数值，真实零值保留为 0；「缺测 / 异常」一律
+  没有数值且必须带原因。按日汇总、时段明细、结果文件（CSV）三个出口共用这套
+  口径，任何出口都不得把缺测改写成 0。
